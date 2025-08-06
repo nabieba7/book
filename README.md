@@ -5,15 +5,15 @@ A Django REST API to manage a book catalog with Docker, CI/CD, and Kubernetes su
 
 ---
 
- 🚀 Project Overview
+## 🚀 Project Overview
 
 This project provides a RESTful API for managing a collection of books. It supports full CRUD operations and includes containerization with Docker, CI/CD with GitHub Actions, and deployment via Kubernetes using Helm.
 
 ---
 
- 🔧 Local Development
+## 🔧 Local Development
 
-1. Clone and Setup
+### 1. Clone and Setup
 ```bash
 git clone https://github.com/your-username/book-catalog.git
 cd book-catalog
