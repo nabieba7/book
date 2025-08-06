@@ -33,5 +33,5 @@ jobs:
       
     - name: Build & Push Image
       run: |
-        docker build -t $DOCKER_USERNAME/bookcatalog:latest .
-        docker push $DOCKER_USERNAME/bookcatalog:latest
+        docker build -t $NABIEBA/bookcatalog:latest .
+        docker push $NABIEBA/bookcatalog:latest
