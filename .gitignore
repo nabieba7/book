@@ -1,0 +1,61 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+*.egg
+*.env
+*.venv
+env/
+venv/
+ENV/
+VENV/
+*.pyo
+*.pyd
+.Python
+
+# Django
+db.sqlite3
+*.log
+*.pot
+*.pyc
+staticfiles/
+media/
+
+# IDEs/editors
+.vscode/
+.idea/
+*.swp
+*~
+
+# OS-generated
+.DS_Store
+Thumbs.db
+
+# Test & Coverage
+htmlcov/
+*.cover
+*.py,cover
+.coverage
+.tox/
+.nox/
+.cache/
+pytest_cache/
+
+# Docker
+*.db
+*.pid
+docker-compose.override.yml
+
+# GitHub Actions
+.github/actions/install-dependencies/__pycache__/
+
+# Build artifacts
+build/
+dist/
+*.spec
+
+# Node (if using semantic-release)
+node_modules/
+package-lock.json
+.npm/
+
