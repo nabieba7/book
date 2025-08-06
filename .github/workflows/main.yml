@@ -52,32 +52,28 @@ jobs:
         with:
           version: 'v1.24.0'
 
-      # 8. Configure kubeconfig
       - name: Configure kubeconfig
         shell: bash
         run: |
           mkdir -p $HOME/.kube
           echo "${{ secrets.KUBE_CONFIG_DATA }}" | base64 --decode > $HOME/.kube/config
           chmod 600 $HOME/.kube/config
-
-      # 9. Export KUBECONFIG env var
+  
       - name: Export KUBECONFIG
         run: echo "KUBECONFIG=$HOME/.kube/config" >> $GITHUB_ENV
-
-      # 10. Validate cluster connectivity
-      - name: Validate kubectl connectivity
+  
+      - name: Validate connectivity
         shell: bash
         run: |
-          kubectl version --client
-          kubectl cluster-info
-          kubectl config get-contexts
-          kubectl config current-context
-
-      # 11. Deploy to Kubernetes
+            kubectl version --client
+             kubectl cluster-info
+            kubectl config current-context
+  
       - name: Deploy to Kubernetes
         shell: bash
         run: |
-          kubectl apply -f k8s/configmap.yaml
-          kubectl apply -f k8s/deployment.yaml
-          kubectl apply -f k8s/service.yaml
-          kubectl apply -f k8s/ingress.yaml
+            kubectl apply -f k8s/configmap.yaml
+            kubectl apply -f k8s/deployment.yaml
+            kubectl apply -f k8s/service.yaml
+            kubectl apply -f k8s/ingress.yaml
+  
