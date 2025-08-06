@@ -45,23 +45,24 @@ jobs:
           docker build -t $IMAGE_NAME .
           docker push $IMAGE_NAME
 
-      # 7. Set up kubectl
+      
       - name: Set up kubectl
         uses: azure/setup-kubectl@v3
         with:
           version: 'v1.24.0'
 
-      # 8. Configure kubeconfig
+     
       - name: Configure kubeconfig
-        env:
-          KUBE_CONFIG_DATA: ${{ secrets.KUBE_CONFIG_DATA }}
         run: |
-          echo "${KUBE_CONFIG_DATA}" | base64 --decode > $HOME/.kube/config
-
-      # 9. Deploy to Kubernetes
+            mkdir -p $HOME/.kube
+            echo "${KUBE_CONFIG_DATA}" | base64 --decode > $HOME/.kube/config
+        env:
+            KUBE_CONFIG_DATA: ${{ secrets.KUBE_CONFIG_DATA }}
+        
       - name: Deploy to Kubernetes
         run: |
-          kubectl apply -f k8s/configmap.yaml
-          kubectl apply -f k8s/deployment.yaml
-          kubectl apply -f k8s/service.yaml
-          kubectl apply -f k8s/ingress.yaml
+            kubectl apply -f k8s/configmap.yaml
+            kubectl apply -f k8s/deployment.yaml
+            kubectl apply -f k8s/service.yaml
+            kubectl apply -f k8s/ingress.yaml
+         
