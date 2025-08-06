@@ -1,0 +1,7 @@
+image:
+  repository: yourusername/bookcatalog
+  tag: latest
+
+service:
+  type: ClusterIP
+  port: 8000
